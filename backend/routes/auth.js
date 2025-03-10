@@ -10,7 +10,6 @@ router.get("/login/success", (req, res) => {
       success: true,
       message: "Successfully logged in",
       user: req.user,
-      // Optionally, you can send cookies if needed: cookies: req.cookies
     });
   }
 });
