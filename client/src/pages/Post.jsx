@@ -1,8 +1,12 @@
-import React from "react";
+import { useLocation } from "react-router";
 import { posts } from "../data";
 
-export default function Post() {
-  const post = posts[2];
+const Post = () => {
+  const location = useLocation();
+  const path = location.pathname.split("/")[2];
+  const post = posts.find((p) => p.id.toString() === path);
+  console.log(location);
+
   return (
     <div className="post">
       <img src={post.img} alt="" className="postImg" />
@@ -11,4 +15,6 @@ export default function Post() {
       <p className="postLongDesc">{post.longDesc}</p>
     </div>
   );
-}
+};
+
+export default Post;
